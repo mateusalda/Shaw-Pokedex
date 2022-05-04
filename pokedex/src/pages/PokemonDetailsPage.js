@@ -1,15 +1,15 @@
-import { useNavigate } from "react-router-dom"
-import { goBack } from "../routes/coordinates"
+import { useParams } from "react-router-dom"
+import React from "react"
+import Header from "../../src/components/header/Header";
 
 
 const PokemonDetailsPage = () => {
-    const navigate = useNavigate()
+    const params = useParams().id 
     return (
-        <div>
-            <h1>Detalhes</h1>
-            <button onClick={() => goBack(navigate)} >Voltar</button>
-        </div>
+        
+        <Header title={params}/>
     )
-}
 
+}
 export default PokemonDetailsPage
+    
