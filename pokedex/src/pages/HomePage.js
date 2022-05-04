@@ -3,6 +3,9 @@ import PokemonCard from "../components/PokemonCard"
 import { goToPokedexPage } from "../routes/coordinates"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import React from "react"
+import Header from "../../src/components/header/Header"
+
 
 
 const HomePage = () => {
@@ -17,6 +20,7 @@ const HomePage = () => {
             <button onClick={() => goToPokedexPage(navigate)} >Pokedex</button>
             {displayPokemonCard}
         </div>
+        <Header title={"PokeHome"}/>
     )
 }
 
