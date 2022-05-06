@@ -6,10 +6,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { goToPokemonDetailsPage } from "../routes/coordinates";
 
 
 const PokemonCard = (props) => {
     const [pokemon, setPokemon] = useState({})
+    const navigate = useNavigate()
 
     useEffect(() => {
         getPokemon()
@@ -26,7 +29,7 @@ const PokemonCard = (props) => {
     }
 
     return (
-        <Card sx={{ maxWidth: 250 }}>
+        <Card sx={{ maxWidth: 250, m: 2 }}>
             <CardMedia
                 component="img"
                 alt="pokemon"
@@ -40,7 +43,7 @@ const PokemonCard = (props) => {
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'space-around' }}>
                 <Button size="small" startIcon={ <Avatar src="https://img.icons8.com/color/344/pokedex.png" />} ></Button>
-                <Button size="small" startIcon={ <Avatar src="https://img.icons8.com/color/344/details.png" />} ></Button>
+                <Button size="small" startIcon={ <Avatar src="https://img.icons8.com/color/344/details.png" />} onClick={() => goToPokemonDetailsPage(navigate)} ></Button>
             </CardActions>
         </Card>
     )

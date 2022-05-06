@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import PokemonCard from "../components/PokemonCard"
 import { goToPokedexPage } from "../routes/coordinates"
-import axios from "axios"
-import { useEffect, useState } from "react"
+import { Container } from "@mui/material"
 
 
 const HomePage = () => {
@@ -15,7 +14,13 @@ const HomePage = () => {
         <div>
             <h1>Home</h1>
             <button onClick={() => goToPokedexPage(navigate)} >Pokedex</button>
-            {displayPokemonCard}
+            <Container sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                width: '90%'
+            }}>
+                {displayPokemonCard}
+            </Container>
         </div>
     )
 }
