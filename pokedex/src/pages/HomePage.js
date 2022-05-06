@@ -20,7 +20,7 @@ const HomePage = () => {
             <button onClick={() => goToPokedexPage(navigate)} >Pokedex</button>
             {displayPokemonCard}
         </div>
-        <Header title={"PokeHome"}/>
+       
     )
 }
 
