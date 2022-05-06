@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 import { Box, Card, CardContent, CardMedia, Grid, Paper, Stack, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useColorType } from "../hooks/useColorType"
 import { goBack } from "../routes/coordinates"
+=======
+import { useParams } from "react-router-dom"
+import React from "react"
+import Header from "../../src/components/header/Header";
+>>>>>>> 23f6308ea7f88429c8758faeaed3a90897fcac1f
 
 const PokemonDetailsPage = () => {
+<<<<<<< HEAD
     const [pokemon, setPokemon] = useState({})
     const navigate = useNavigate()
     const [color1, color2, getTypes] = useColorType(pokemon.types)
@@ -147,7 +154,14 @@ const PokemonDetailsPage = () => {
                 </Grid>
             </Box>
         </div>
+=======
+    const params = useParams().id 
+    return (
+        
+        <Header title={params}/>
+>>>>>>> 23f6308ea7f88429c8758faeaed3a90897fcac1f
     )
-}
 
+}
 export default PokemonDetailsPage
+    

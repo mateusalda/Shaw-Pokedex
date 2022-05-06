@@ -2,6 +2,11 @@ import { useNavigate } from "react-router-dom"
 import PokemonCard from "../components/PokemonCard"
 import { goToPokedexPage } from "../routes/coordinates"
 import { Container } from "@mui/material"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import React from "react"
+import Header from "../../src/components/header/Header"
+
 
 
 const HomePage = () => {
@@ -12,6 +17,7 @@ const HomePage = () => {
 
     return (
         <div>
+            <Header title={"PokeHome"}/>
             <h1>Home</h1>
             <button onClick={() => goToPokedexPage(navigate)} >Pokedex</button>
             <Container sx={{

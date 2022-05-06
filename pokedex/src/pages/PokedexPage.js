@@ -1,14 +1,12 @@
 import { useNavigate } from "react-router-dom"
-import { goToHomePage } from "../routes/coordinates"
+import React from "react"
+import Header from "../../src/components/header/Header"
 
 
 const PokedexPage = () => {
     const navigate = useNavigate()
     return (
-        <div>
-            <h1>Pokedex</h1>
-            <button onClick={() => goToHomePage(navigate)} >Home</button>
-        </div>
+        <Header title={"Pokedex"}/>
     )
 }
 
