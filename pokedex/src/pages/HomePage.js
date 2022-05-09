@@ -12,7 +12,7 @@ import Header from "../../src/components/header/Header"
 const HomePage = () => {
     const navigate = useNavigate()
 
-    const quantidadePokemon = Array.from({ length: 20 }, (_, index) => ++index)
+    const quantidadePokemon = Array.from({ length: 151 }, (_, index) => ++index)
     const displayPokemonCard = quantidadePokemon.map((i) => <PokemonCard key={i} index={i} />)
 
     return (
