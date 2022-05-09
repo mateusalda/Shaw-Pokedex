@@ -1,9 +1,7 @@
-import { Box, Card, CardContent, CardMedia, Grid, Paper, Stack, Typography } from "@mui/material"
-import axios from "axios"
+import { Avatar, Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Paper, Stack, Typography } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useColorType } from "../hooks/useColorType"
-import { goBack } from "../routes/coordinates"
 import { useParams } from "react-router-dom"
 import React from "react"
 import Header from "../../src/components/header/Header";
@@ -12,9 +10,10 @@ import GlobalStateContext from "../GlobalState/GlobalStateContext";
 const PokemonDetailsPage = () => {
     const navigate = useNavigate()
     const [pokemon, setPokemon] = useState({})
-    const [color1, color2, getTypes] = useColorType(pokemon.types)
-    const params = useParams().id 
+    const [color1, color2, colors, getTypes] = useColorType(pokemon.types)
     const {states, setters} = useContext(GlobalStateContext)
+    const [addedToPokedex, setAddedToPokedex] = useState(states.pokedex.some(entry => entry.id === states.details.id))
+    const params = useParams().id
 
     useEffect(() => {
         getPokemon()
@@ -26,22 +25,19 @@ const PokemonDetailsPage = () => {
 
     const getPokemon = () => {
         setPokemon(states.details)
-
-        // axios.get(`https://pokeapi.co/api/v2/pokemon/6`)
-        // .then(response => {
-        //     setPokemon(response.data)
-        // })
-        // .catch(error => {
-        //     console.log(error.response);
-        // })
     }
-    
+
+    const entryPokedexData = () => {
+        setters.pokedexEntry(pokemon)
+        setAddedToPokedex(!addedToPokedex)
+    }
+
     return (
         <div style={{
             height: '100vh',
             background: `linear-gradient(45deg, ${color1} 0 50%, ${color2} 50% 100%)`
         }}>
-              <Header title={params}/>
+            <Header title={params} />
             <Box sx={{ flexGrow: 1, pt: 3 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -78,7 +74,7 @@ const PokemonDetailsPage = () => {
                         <Card sx={{
                             display: 'flex',
                             alignContent: 'center',
-                            height: '100%',
+                            height: 450,
                             width: 400,
                             margin: 2
                         }}>
@@ -101,6 +97,20 @@ const PokemonDetailsPage = () => {
                                 </Stack>
                             </CardContent>
                         </Card>
+                        <Card sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignContent: 'center',
+                            height: 150,
+                            width: 400,
+                            margin: 2
+                        }}>
+                            <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
+                                <Button size="large" startIcon={<Avatar src="https://img.icons8.com/color/344/pokedex.png" sx={{height: 100, width: 100, mr: 2}} />} sx={{ filter: addedToPokedex ? 'grayscale(0%)' : 'grayscale(100%)' }} onClick={() => entryPokedexData()} >
+                                    {addedToPokedex ? 'Remover da Pokedex' : 'Adicionar à Pokedex'}
+                                </Button>
+                            </CardActions>
+                        </Card>
                     </Grid>
                     <Grid item xs={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Card sx={{
@@ -118,9 +128,9 @@ const PokemonDetailsPage = () => {
                                     spacing={2}
                                     sx={{ mx: 2, my: 4 }}
                                 >
-                                    {pokemon.types && pokemon.types.map((type) => {
-                                        return <Box key={type.type.name}>
-                                            <Typography component='div' variant='body1'>{type.type.name}</Typography>
+                                    {pokemon.types && pokemon.types.map((type, i) => {
+                                        return <Box key={type.type.name} sx={{ borderRadius: '12pt', boxShadow: `0 0 0 4pt ${colors[i]}`}}>
+                                            <Typography component='div' variant='body1' sx={{mx: 1, my: '3px'}} >{type.type.name}</Typography>
                                         </Box>
                                     })}
                                 </Stack>
@@ -158,4 +168,4 @@ const PokemonDetailsPage = () => {
     )
 }
 export default PokemonDetailsPage
-    
+

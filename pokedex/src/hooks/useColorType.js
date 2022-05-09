@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export const useColorType = () => {
     const [color1, setColor1] = useState('')
     const [color2, setColor2] = useState('')
+    const [colors, setColors] = useState([])
+
+    useEffect(() => {
+        setColors([color1, color2])
+    }, [color1, color2])
 
     const getTypes = (types) => {
         switch (types && types[0].type.name) {
@@ -148,5 +153,5 @@ export const useColorType = () => {
         }
     }
 
-    return [color1, color2, getTypes]
+    return [color1, color2, colors, getTypes]
 }

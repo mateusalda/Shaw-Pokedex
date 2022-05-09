@@ -9,9 +9,11 @@ const GlobalState = (props) => {
         let index
         let updatedPokedex = [...pokedex]
 
-        updatedPokedex.includes(pokemon) ? 
+        updatedPokedex.some(entry => entry.id === pokemon.id) ? 
         updatedPokedex.splice(updatedPokedex.indexOf(pokemon), 1) :
         updatedPokedex.push(pokemon)
+
+        updatedPokedex.sort((a, b) => a.id - b.id)
 
         setPokedex(updatedPokedex)
     }
