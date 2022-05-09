@@ -18,8 +18,6 @@ const HomePage = () => {
     return (
         <div>
             <Header title={"PokeHome"}/>
-            <h1>Home</h1>
-            <button onClick={() => goToPokedexPage(navigate)} >Pokedex</button>
             <Container sx={{
                 display: 'flex',
                 flexWrap: 'wrap',
