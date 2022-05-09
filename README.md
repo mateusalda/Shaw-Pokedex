@@ -1,16 +1,14 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Mateus Almeida Aldá
+- Raphael Cesar 
+- Jacson Crestani
 
-Link do Surge: www.link.com.br
+Link do Surge: https://weary-soup.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Quase tudo
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Ir da página de detalhes para a página da pokedex está com erro
