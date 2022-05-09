@@ -5,14 +5,17 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToPokemonDetailsPage } from "../routes/coordinates";
+import GlobalStateContext from "../GlobalState/GlobalStateContext";
 
 
 const PokemonCard = (props) => {
-    const [pokemon, setPokemon] = useState({})
     const navigate = useNavigate()
+    const [pokemon, setPokemon] = useState({})
+    const [addedToPokedex, setAddedToPokedex] = useState(false)
+    const {states, setters} = useContext(GlobalStateContext)
 
     useEffect(() => {
         getPokemon()
@@ -26,6 +29,16 @@ const PokemonCard = (props) => {
         .catch(error => {
             console.log(error.response);
         })
+    }
+
+    const selectPokemonDetails = () => {
+        setters.setDetails(pokemon)
+        goToPokemonDetailsPage(navigate)
+    }
+
+    const entryPokedexData = () => {
+        setters.pokedexEntry(pokemon)
+        setAddedToPokedex(!addedToPokedex)
     }
 
     return (
@@ -42,8 +55,8 @@ const PokemonCard = (props) => {
                 </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', justifyContent: 'space-around' }}>
-                <Button size="small" startIcon={ <Avatar src="https://img.icons8.com/color/344/pokedex.png" />} ></Button>
-                <Button size="small" startIcon={ <Avatar src="https://img.icons8.com/color/344/details.png" />} onClick={() => goToPokemonDetailsPage(navigate)} ></Button>
+                <Button size="small" startIcon={ <Avatar src="https://img.icons8.com/color/344/pokedex.png" />} sx={{filter: addedToPokedex ? 'grayscale(0%)' : 'grayscale(100%)'}} ></Button>
+                <Button size="small" startIcon={ <Avatar src="https://img.icons8.com/color/344/details.png" />} onClick={() => selectPokemonDetails()} ></Button>
             </CardActions>
         </Card>
     )

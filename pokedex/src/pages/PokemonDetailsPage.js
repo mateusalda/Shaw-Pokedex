@@ -1,21 +1,20 @@
-<<<<<<< HEAD
 import { Box, Card, CardContent, CardMedia, Grid, Paper, Stack, Typography } from "@mui/material"
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useColorType } from "../hooks/useColorType"
 import { goBack } from "../routes/coordinates"
-=======
 import { useParams } from "react-router-dom"
 import React from "react"
 import Header from "../../src/components/header/Header";
->>>>>>> 23f6308ea7f88429c8758faeaed3a90897fcac1f
+import GlobalStateContext from "../GlobalState/GlobalStateContext";
 
 const PokemonDetailsPage = () => {
-<<<<<<< HEAD
-    const [pokemon, setPokemon] = useState({})
     const navigate = useNavigate()
+    const [pokemon, setPokemon] = useState({})
     const [color1, color2, getTypes] = useColorType(pokemon.types)
+    const params = useParams().id 
+    const {states, setters} = useContext(GlobalStateContext)
 
     useEffect(() => {
         getPokemon()
@@ -26,22 +25,24 @@ const PokemonDetailsPage = () => {
     }, [pokemon])
 
     const getPokemon = () => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/6`)
-            .then(response => {
-                setPokemon(response.data)
-            })
-            .catch(error => {
-                console.log(error.response);
-            })
-    }
+        setPokemon(states.details)
 
+        // axios.get(`https://pokeapi.co/api/v2/pokemon/6`)
+        // .then(response => {
+        //     setPokemon(response.data)
+        // })
+        // .catch(error => {
+        //     console.log(error.response);
+        // })
+    }
+    
     return (
         <div style={{
             height: '100vh',
             background: `linear-gradient(45deg, ${color1} 0 50%, ${color2} 50% 100%)`
-          }}>
-            <button onClick={() => goBack(navigate)} >Voltar</button>
-            <Box sx={{ flexGrow: 1 }}>
+        }}>
+              <Header title={params}/>
+            <Box sx={{ flexGrow: 1, pt: 3 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Card sx={{
@@ -154,14 +155,7 @@ const PokemonDetailsPage = () => {
                 </Grid>
             </Box>
         </div>
-=======
-    const params = useParams().id 
-    return (
-        
-        <Header title={params}/>
->>>>>>> 23f6308ea7f88429c8758faeaed3a90897fcac1f
     )
-
 }
 export default PokemonDetailsPage
     
