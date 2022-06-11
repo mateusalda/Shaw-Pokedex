@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Raphael Cesar 
 - Jacson Crestani
 
-Link do Surge: labe-dex.surge.sh
+Link do Surge: https://labe-dex.surge.sh
 
 O que funciona:
 - Quase tudo
