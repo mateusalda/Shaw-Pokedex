@@ -1,14 +1,11 @@
 # POKEDEX
 
+Link do Surge: https://labe-dex.surge.sh
+
+Objetivo:
+Criar um site de pokemon onde verificar as informações de cada pokemon e adicioná-los à sua pokedex, criando sua própria coleção.
+
 Nome dos integrantes: 
 - Mateus Almeida Aldá
 - Raphael Cesar 
 - Jacson Crestani
-
-Link do Surge: https://labe-dex.surge.sh
-
-O que funciona:
-- Quase tudo
-
-O que não funciona: 
-- Ir da página de detalhes para a página da pokedex está com erro
