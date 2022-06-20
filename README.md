@@ -47,6 +47,10 @@ Este é um projeto de Front-end, desenvolvido no bootcamp da Labenu, cujo o prin
 - [x] Uso de estado global para acessar detalhes do pokemon desejado.
 - [x] Uso de estado global para salvar os pokemon selecionados na pokedex.
 
+![Lista de Pokemon](./pokedex/src/img/pokemon_list.png?raw=true "Lista de Pokemon")
+![Página de Detalhes](./pokedex/src/img/pokemon_details.png?raw=true "Página de Detalhes")
+![Lista da Pokedex](./pokedex/src/img/pokedex_list.png?raw=true "Lista da Pokedex")
+
 ---
 
 ## 🔗Link para Acessar
