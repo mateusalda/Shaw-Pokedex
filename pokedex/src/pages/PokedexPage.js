@@ -1,7 +1,7 @@
 import { Container } from "@mui/material"
 import React, { useContext, useEffect, useState } from "react"
 import Header from "../../src/components/header/Header"
-import PokemonCard from "../components/PokemonCard"
+import PokemonCard from "../components/PokemonCard/PokemonCard"
 import GlobalStateContext from "../GlobalState/GlobalStateContext"
 
 

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import PokemonCard from "../components/PokemonCard"
+import PokemonCard from "../components/PokemonCard/PokemonCard"
 import { goToPokedexPage } from "../routes/coordinates"
 import { Container } from "@mui/material"
 import axios from "axios"
