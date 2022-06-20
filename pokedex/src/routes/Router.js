@@ -8,8 +8,8 @@ export const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route index element={<HomePage/>} />
-                <Route path='pokedex' element={<PokedexPage/>} />
-                <Route path='details' element={<PokemonDetailsPage/>} />
+                <Route path='/pokedex' element={<PokedexPage/>} />
+                <Route path='/details' element={<PokemonDetailsPage/>} />
             </Routes>
         </BrowserRouter>
     )
