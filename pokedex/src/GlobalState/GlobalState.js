@@ -6,12 +6,12 @@ const GlobalState = (props) => {
     const [details, setDetails] = useState({})
 
     const pokedexEntry = (pokemon) => {
-        let index
         let updatedPokedex = [...pokedex]
+        const index = updatedPokedex.findIndex(entry => entry.id === pokemon.id)
 
-        updatedPokedex.some(entry => entry.id === pokemon.id) ? 
-        updatedPokedex.splice(updatedPokedex.indexOf(pokemon), 1) :
-        updatedPokedex.push(pokemon)
+        index < 0 ? 
+        updatedPokedex.push(pokemon) :
+        updatedPokedex.splice(index, 1)
 
         updatedPokedex.sort((a, b) => a.id - b.id)
 
